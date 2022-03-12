@@ -4,15 +4,15 @@ const { register } = require('../services/register');
 const router = express.Router();
 
 
-router.post('/login', function(req, res) {
+router.post('/login', async function(req, res) {
     const { email, password } = req.body;
-    const result = login(email, password);
+    const result = await login(email, password);
     res.json(result);
 
 })
 
-router.post('/register', function(req, res) {
-    const result = register(req.body);
+router.post('/register', async function(req, res) {
+    const result = await register(req.body);
     res.json(result);
 
 })
